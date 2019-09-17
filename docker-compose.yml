@@ -3,6 +3,10 @@ services:
   junior-java-backend-assignment:
     build:
       context: '.'
+    environment:
+      - 'DB=assignment'
+      - 'DB_User=assignment'
+      - 'DB_Password=abc123'
     ports:
       - '8080:8080/tcp'
   database:
