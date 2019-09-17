@@ -34,7 +34,10 @@ function disconnect() {
 
 function sendWord() {
     //client.send(destination, header, body)
-    stompClient.send("/app/hello", {}, JSON.stringify({'content': $("#word").val()}));
+    var outputDate = moment().format("YYYY-MM-DD HH:mm:ssZZ");
+
+
+    stompClient.send("/app/hello", {}, JSON.stringify({'content': $("#word").val(), 'timestamp': outputDate}));
 }
 
 function showWord(word) {

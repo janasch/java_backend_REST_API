@@ -1,11 +1,10 @@
 package io.falcon.assignment.controller;
 
 
-import io.falcon.assignment.domain.Message;
+import io.falcon.assignment.model.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.util.HtmlUtils;
 
 @RestController
 public class MessageController {
@@ -15,7 +14,8 @@ public class MessageController {
     @SendTo("/topic/words")
     public Message greeting(Message message) throws Exception {
         //return new Message("So you wish to know the palindrome length of " + HtmlUtils.htmlEscape(message.getContent()) + "!");
-        return new Message(message.getContent());
+
+        return message;
     }
 
 }
