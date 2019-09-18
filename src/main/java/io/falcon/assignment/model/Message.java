@@ -5,13 +5,21 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.falcon.assignment.util.Palindrome;
 import io.falcon.assignment.util.DateTimeHelper;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.AllArgsConstructor;
 
 import javax.validation.constraints.NotEmpty;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 
+@AllArgsConstructor
 public class Message {
 
+
+    @Id
     private long id;
 
     @NotEmpty(message = "Content of the message is missing")
@@ -19,7 +27,7 @@ public class Message {
 
     // TODO: Make sure that we get the timezone offset with us when we serialize to a string / JSON
     @NotEmpty(message = "Timestamp of the message is missing")
-    private LocalDateTime timestamo;
+    private LocalDateTime timestamp;
 
     private Integer palindromeLength = null;
 
@@ -36,6 +44,14 @@ public class Message {
         this.setTimestamp(DateTimeHelper.fromMsgFormattedString(timestamp));
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
 
     public String getContent() {
         return content;
@@ -43,16 +59,16 @@ public class Message {
 
     public void setContent(String content) {
         this.content = content;
-        this.palindromeLength = null; // Invalidate the palindrome "cache" when the content change
+        this.palindromeLength = null; // Invalidate the palindrome "cache" when the content changes
     }
 
 
     public LocalDateTime getTimestamp() {
-        return timestamo;
+        return timestamp;
     }
 
     public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamo = timestamp;
+        this.timestamp = timestamp;
     }
 
     public Integer getPalindromeLength() {

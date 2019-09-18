@@ -19,3 +19,12 @@ services:
       - './database:/docker-entrypoint-initdb.d'
     ports:
       - '5432:5432/tcp'
+#attempting to solve dependency problem
+    spring:
+      datasource:
+        platform: postgres
+        driverClassName: org.postgresql.Driver
+        url: jdbc:postgreql://localhost:5432/tcp
+        username: assignment
+        password: abc123
+
