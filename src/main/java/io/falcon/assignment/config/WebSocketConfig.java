@@ -14,13 +14,13 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
         @Override
         public void configureMessageBroker(MessageBrokerRegistry config) {
             config.enableSimpleBroker("/topic");
-            config.setApplicationDestinationPrefixes("/app");
+            config.setApplicationDestinationPrefixes("/websockets");
         }
 
         @Override
         public void registerStompEndpoints(StompEndpointRegistry registry) {
-            registry.addEndpoint("/falcon-assignment");
-            registry.addEndpoint("/falcon-assignment").withSockJS();
+            registry.addEndpoint("/messages");
+            registry.addEndpoint("/messages").withSockJS();
         }
 
 

@@ -1,17 +1,12 @@
 package io.falcon.assignment.persistence;
 
 import io.falcon.assignment.model.Message;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
 
-public interface MessageRepository {
+@Repository
+public interface MessageRepository extends JpaRepository<Message, Long> {
 
-    Message add(Message message);
-    void update(Message message);
-    void remove(long id);
-
-    Optional<Message> findById(long id);
-    List<Message> findAll();
 
 }

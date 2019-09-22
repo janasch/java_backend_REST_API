@@ -13,12 +13,12 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/falcon-assignment');
+    var socket = new SockJS('/messages');
     stompClient = Stomp.over(socket);
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/words', function (word) {
+        stompClient.subscribe('/topic/reply', function (word) {
             showWord(JSON.parse(word.body).content);
         });
     });
@@ -35,9 +35,7 @@ function disconnect() {
 function sendWord() {
     //client.send(destination, header, body)
     var outputDate = moment().format("YYYY-MM-DD HH:mm:ssZZ");
-
-
-    stompClient.send("/app/hello", {}, JSON.stringify({'content': $("#word").val(), 'timestamp': outputDate}));
+    stompClient.send("/websockets/messages", {}, JSON.stringify({'content': $("#word").val(), 'timestamp': outputDate}));
 }
 
 function showWord(word) {

@@ -1,9 +1,9 @@
 --
 -- Database schema
 --
-CREATE TABLE messages (
+CREATE TABLE message (
     id BIGSERIAL PRIMARY KEY,
-    msg character varying(100) NOT NULL,
-    msg_ts timestamp with time zone NOT NULL,
-    palendrome int
+    msg_content character varying(100) NOT NULL,
+    msg_timestamp timestamp with time zone NOT NULL,
+    msg_palindromeLength int
 );

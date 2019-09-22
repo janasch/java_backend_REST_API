@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  junior-java-backend-assignment:
+  app:
     build:
       context: '.'
     environment:
@@ -8,7 +8,10 @@ services:
       - 'DB_User=assignment'
       - 'DB_Password=abc123'
     ports:
-      - '8080:8080/tcp'
+      #workaround for docker-compose bug: disable port binding
+      - '8080'
+    depends_on:
+      - database
   database:
     image: 'postgres:9.6'
     environment:
@@ -19,12 +22,6 @@ services:
       - './database:/docker-entrypoint-initdb.d'
     ports:
       - '5432:5432/tcp'
-#attempting to solve dependency problem
-    spring:
-      datasource:
-        platform: postgres
-        driverClassName: org.postgresql.Driver
-        url: jdbc:postgreql://localhost:5432/tcp
-        username: assignment
-        password: abc123
 
+volumes:
+  database: {}

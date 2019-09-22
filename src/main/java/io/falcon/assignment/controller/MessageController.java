@@ -9,7 +9,7 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @RestController
@@ -20,20 +20,18 @@ public class MessageController {
 
 
     @MessageMapping("/messages")
-    @SendTo("/topic/words")
+    @SendTo("/topic/reply")
     public Message greeting(Message message) throws Exception {
-        //return new Message("So you wish to know the palindrome length of " + HtmlUtils.htmlEscape(message.getContent()) + "!");
-        repository.add(message);
+        repository.save(message);
         return message;
     }
 
     @GetMapping("/messages")
-    public List<Message> findAll(){
+    public List<Message> findAll() {
         List<Message> messages = repository.findAll();
         return messages;
 
     }
-
 
 
 }
