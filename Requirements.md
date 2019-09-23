@@ -57,7 +57,7 @@ repository
     ```
 	* an endpoint to retrieve all messages persisted in the database; the entities
 	must be enriched with the `longest_palindrome_size` property, that contains
-	the length of the longest palindrome contained within value ofthe `content` 
+	the length of the longest palindrome contained within value of the `content` 
 	property.
 	```json
     [

@@ -5,10 +5,11 @@ package io.falcon.assignment.util;
  * Source: https://algs4.cs.princeton.edu/53substring/Manacher.java.html
  */
 
-public final class Palindrome {
+public final class PalindromeHelper {
 
         public static int calculatePalindrome(String s) {
             // Preprocess
+             s = s.replaceAll("\\s+","").toLowerCase();
             char[] t = new char[s.length() * 2 + 3];
             t[0] = '$';
             t[s.length() * 2 + 2] = '@';

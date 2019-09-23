@@ -3,10 +3,11 @@ package io.falcon.assignment.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.falcon.assignment.util.Palindrome;
+import io.falcon.assignment.util.PalindromeHelper;
 import io.falcon.assignment.util.DateTimeHelper;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 
 @Entity
@@ -17,10 +18,11 @@ public class Message {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
+    @NotEmpty(message= "No characters in message")
     @Column(name = "msg_content")
     private String content;
 
-    // TODO: Make sure that we get the timezone offset with us when we serialize to a string / JSON
+
     @Column(name = "msg_timestamp")
     private LocalDateTime timestamp;
 
@@ -73,7 +75,7 @@ public class Message {
 
     public Integer getPalindromeLength() {
         if(this.palindromeLength == -1){
-            int palindromeLength = Palindrome.calculatePalindrome(this.content);
+            int palindromeLength = PalindromeHelper.calculatePalindrome(this.content);
             this.palindromeLength = palindromeLength;
             return palindromeLength;
         }else{
