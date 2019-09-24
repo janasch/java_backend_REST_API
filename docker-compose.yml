@@ -3,17 +3,18 @@ services:
   app:
     build:
       context: '.'
+    container_name: 'app'
     environment:
       - 'DB=assignment'
       - 'DB_User=assignment'
       - 'DB_Password=abc123'
     ports:
-      #workaround for docker-compose bug: disable port binding
-      - '8080'
+      - '8080:8080'
     depends_on:
       - database
   database:
     image: 'postgres:9.6'
+    container_name: 'database'
     environment:
       - 'POSTGRES_DB=assignment'
       - 'POSTGRES_USER=assignment'
@@ -21,7 +22,8 @@ services:
     volumes:
       - './database:/docker-entrypoint-initdb.d'
     ports:
-      - '5432:5432/tcp'
+      #workaround for docker-compose bug: disable port binding
+      - '5432/tcp'
 
 volumes:
   database: {}

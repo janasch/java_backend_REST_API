@@ -1,10 +1,12 @@
 /home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/model/Message.java
-/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/persistence/MessageEntity.java
-/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/persistence/MessageRepositoryImpl.java
-/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/persistence/MessageEntityRepository.java
+/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/test/PalindromeUnittest.java
 /home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/config/WebSocketConfig.java
-/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/util/Palindrome.java
+/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/service/MessageService.java
 /home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/util/DateTimeHelper.java
+/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/test/ApplicationTest.java
+/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/util/PalindromeHelper.java
+/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/test/MessageControllerIntegrTest.java
 /home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/Application.java
 /home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/controller/MessageController.java
 /home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/persistence/MessageRepository.java
+/home/jana/Falcon/junior-java-backend-assignment/src/main/java/io/falcon/assignment/test/MessageRepositoryIntegrationTest.java
